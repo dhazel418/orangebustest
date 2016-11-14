@@ -38,5 +38,53 @@ namespace UnitTests.CurrencyConverter
 			Converter converter = new Converter();
 			converter.Convert("USD", "DDD", 100);
 		}
-	}
+
+	  [Test]
+	  public void ItShouldConvertFromPoundsToEurosCorrectly()
+	  {
+      decimal amountInPounds = 1m;
+      decimal expectedAmountInEuros = 0.97m;
+
+      Converter converter = new Converter();
+      decimal result = converter.Convert("GBP", "EUR", amountInPounds);
+
+      Assert.AreEqual(expectedAmountInEuros, result);
+    }
+
+	  [Test]
+	  public void ItShouldConvertFromEurosToPoundsCorrectly()
+	  {
+      decimal amountInEuros = 1m;
+      decimal expectedAmountInPounds = 1.03m;
+
+      Converter converter = new Converter();
+      decimal result = converter.Convert("EUR", "GBP", amountInEuros);
+
+      Assert.AreEqual(expectedAmountInPounds, result);
+    }
+
+	  [Test]
+	  public void ItShouldConvertFromDollarsToEurosCorrectly()
+	  {
+	    decimal amountInDollars = 1m;
+      decimal expectedAmountInEuros = 0.78m;
+
+      Converter converter = new Converter();
+      decimal result = converter.Convert("USD", "EUR", amountInDollars);
+
+      Assert.AreEqual(expectedAmountInEuros, result);
+    }
+
+    [Test]
+    public void ItShouldConvertFromEurosToDollarsCorrectly()
+    {
+      decimal amountInEuros = 1m;
+      decimal expectedAmountInDollars = 1.29m;
+
+      Converter converter = new Converter();
+      decimal result = converter.Convert("EUR", "USD", amountInEuros);
+
+      Assert.AreEqual(expectedAmountInDollars, result);
+    }
+  }
 }
