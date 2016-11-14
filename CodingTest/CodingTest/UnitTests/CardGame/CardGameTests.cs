@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using System.Linq;
 using NUnit.Framework;
 
 using SkeletonCode.CardGame;
@@ -44,6 +44,21 @@ namespace UnitTests.CardGame
 
 			Assert.AreEqual(expectedCount, resultCount);
 		}
+
+	  [Test]
+	  public void ShufflingTwiceShouldProduceDifferentCardSequences()
+	  {
+      IPackOfCardsCreator packOfCardsCreator = new PackOfCardsCreator();
+      IPackOfCards packOfCards = packOfCardsCreator.Create();
+
+      packOfCards.Shuffle();
+      IList<ICard> shuffle1Sequence = packOfCards.ToList();
+
+      packOfCards.Shuffle();
+      IList<ICard> shuffle2Sequence = packOfCards.ToList();
+	    
+      Assert.AreNotSame(shuffle1Sequence, shuffle2Sequence);
+	  }
 
 		[Test]
 		public void TheCountOfThePackShouldDecreaseByOneAfterACardIsTakenFromTheTop()

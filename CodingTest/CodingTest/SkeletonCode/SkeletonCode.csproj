@@ -45,6 +45,7 @@
     <Compile Include="CardGame\ICard.cs" />
     <Compile Include="CardGame\IPackOfCards.cs" />
     <Compile Include="CardGame\IPackOfCardsCreator.cs" />
+    <Compile Include="CardGame\PackOfCards.cs" />
     <Compile Include="CardGame\PackOfCardsCreator.cs" />
     <Compile Include="CurrencyConverter\Converter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

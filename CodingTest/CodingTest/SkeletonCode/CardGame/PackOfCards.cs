@@ -66,12 +66,17 @@ namespace SkeletonCode.CardGame
 
     public void Shuffle()
     {
-      throw new NotImplementedException();
+      IList<ICard> cardList = _cardCollection.ToList();
+      _cardCollection = new ReadOnlyCollection<ICard>(cardList.OrderBy(a => Guid.NewGuid()).ToList());
     }
 
     public ICard TakeCardFromTopOfPack()
     {
-      throw new NotImplementedException();
+      IList<ICard> cardList = _cardCollection.ToList();
+      ICard topCard = cardList[0];
+      cardList.Remove(topCard);
+      _cardCollection = new ReadOnlyCollection<ICard>(cardList);
+      return topCard;
     }
 
     #endregion
