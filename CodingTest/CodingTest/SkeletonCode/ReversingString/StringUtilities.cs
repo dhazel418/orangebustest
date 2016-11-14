@@ -1,4 +1,6 @@
-﻿namespace SkeletonCode.ReversingString
+﻿using System.Linq;
+
+namespace SkeletonCode.ReversingString
 {
 	public class StringUtilities
 	{
@@ -6,10 +8,10 @@
 		{
 			string output = string.Empty;
 
-			for(int i = input.Length - 1; i >= 0; i--)
-			{
-				output += input[i];
-			}
+		  if (!string.IsNullOrEmpty(input))
+		  {
+        output = new string(input.Reverse().ToArray());
+      }
 
 			return output;
 		}
