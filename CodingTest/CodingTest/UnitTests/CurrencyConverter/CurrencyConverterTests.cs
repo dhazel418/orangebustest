@@ -32,7 +32,7 @@ namespace UnitTests.CurrencyConverter
 		}
 		
 		[Test]
-		[ExpectedException()]
+		[ExpectedException]
 		public void AnExceptionShouldBeThrownIfAnUnknownCurrencyTypeIsPassedIn()
 		{
 			Converter converter = new Converter();

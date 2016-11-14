@@ -25,7 +25,10 @@ namespace SkeletonCode.CurrencyConverter
       ValidateCurrency(inputCurrency);
       ValidateCurrency(outputCurrency);
 
-			return amount;
+      decimal inputRate = _currencyRateDictionary[inputCurrency];
+      decimal outputRate = _currencyRateDictionary[outputCurrency];
+
+			return Math.Round((amount / inputRate) * outputRate, 2);
 		}
 	}
 }
